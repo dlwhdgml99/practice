@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>toggle</title>
+    
+</head>
+<body>
+
+<h1>password toggle</h1>
+
+
+  <div id="box">
+    <input id="input" type="password">
+    <button id="btn">Show</button>
+  </div>
+
+  <style>
+    #btn {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        background-color: transparent;
+        border: none;
+        padding: 0 0.5rem;
+    }
+    
+    #box {
+        position: relative;
+        display: inline-block;
+    }
+
+    #input {
+        padding: 0.5rem;
+    }
+  </style>
+
+  <script>
+    const btn = document.getElementById("btn");
+    const input = document.getElementById("input");
+
+    btn.addEventListener("click", function () {
+
+      if (input.type === "text") {
+        input.type = "password"
+        btn.textContent = "Show";
+      } else {
+        input.type = "text"
+        btn.textContent = "Hide";
+      }
+    })
+  </script>
+
+</body>
+</html>

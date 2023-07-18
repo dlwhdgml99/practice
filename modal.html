@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal</title>
+
+    <style>
+       #overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0 0 0/ 0.2);
+        }
+        #overlay.hidden {
+            display: none;
+        }
+        #center {
+            background-color: pink;
+            border-radius: 1rem;
+            max-width: 20rem;
+            padding: 0.5rem;
+            margin: 10rem auto;
+        }
+        #close-btn {
+            float: right;
+            font-size: 28px;
+            color: white;
+            background-color: transparent;
+            border: none;
+            padding: 2rem;
+            position: fixed;
+            top: 8px;
+            right: 16px;
+        }
+        #close-btn.hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Modal</h1>
+    <button id="btn">Open</button>
+
+    <div id="overlay" class="hidden">
+        <div id="center">
+            <h1>Heading</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                Veritatis eius voluptatum eaque, nemo impedit esse pariatur dolore sint labore maiores minus atque voluptas, 
+                fuga possimus ratione beatae provident facilis consectetur.
+            </p>
+        </div>
+
+        <button id="close-btn" class="hidden">x</button>
+    </div>
+
+    <script>
+        var closeBtn = document.getElementById("close-btn");
+        var btn = document.getElementById("btn");
+        var overlay = document.getElementById("overlay");
+
+        console.log(closeBtn)
+        console.log(btn)
+    
+        //open버튼 클릭하면 Heading 부분 뜸
+        btn.addEventListener('click', (e) => {
+            overlay.classList.remove('hidden');
+            closeBtn.classList.remove('hidden');
+        })
+
+        
+        // 빈 부분 누르면 오버레이 나가짐
+        overlay.addEventListener('click', (e) => {
+            
+            console.log(e.target)
+
+            // x버튼 눌렀을 때 나가짐
+            if (e.target == closeBtn) {
+                overlay.classList.add('hidden')
+            }
+
+            // 오버레이 눌렀을 때 나가짐
+            if (e.target == overlay) {
+                overlay.classList.add('hidden')
+            }
+        })
+        
+    </script>
+</body>
+</html>

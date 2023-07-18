@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sidebar</title>
+
+    <style>
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: -250px;
+            background-color: pink;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 40px;
+        }
+        .sidebtn {
+            background-color: transparent;
+            color: white;
+            padding: 4px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+        h2 {
+            margin-left: 1rem;
+        }
+        li {
+            margin-bottom: 4px;
+        }
+        #overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0 0 0/ 0.2);
+        }
+        #overlay.hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div>
+    <div class="sidebtn" id="btn">
+        <svg xmlns="http://www.w3.org/2000/svg" height="1.5rem" viewBox="0 0 448 512"
+        onclick="myFunction()" class="sidebtn" id="btn">
+        <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 
+        0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
+        </svg>
+    </div>
+
+    <div id="overlay" class="hidden"></div>
+    
+</div>
+
+<h1>Side bar</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+        Nulla at minima inventore accusantium dolorum consectetur aliquid, laudantium tempore recusandae facere maiores corporis? Laudantium 
+        assumenda repudiandae, odit id natus magni error?
+    </p>
+
+<div class="sidebar" id="bar">
+    <h2>Logo</h2>
+    <ul>
+        <li>Menu</li>   
+        <li>Menu</li>   
+        <li>Menu</li>   
+    </ul>
+</div>
+
+<script>
+   
+var sideBar = document.getElementById("bar");
+var sideBtn = document.getElementById("btn");
+var overlay = document.getElementById("overlay");
+
+console.log(sideBtn)
+console.log(sideBar)
+console.log(overlay)
+
+function myFunction() {
+    sideBtn.addEventListener('click', function() {
+        sideBar.style.left = 0;
+        overlay.classList.remove("hidden");
+    })
+
+    overlay.addEventListener('click', function() {
+        overlay.classList.add("hidden");
+        sideBar.style.left = "-250px";
+    })
+}
+
+</script>
+
+
+</body>
+</html>
