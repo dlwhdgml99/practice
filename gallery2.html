@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gallery2</title>
+
+    <style>
+        .pop {
+            width: 300px;
+            display: block;
+            object-fit: cover;
+        }
+        .main {
+            display: flex;
+            width: 100px;
+            height: 100px;
+        }
+        .show {
+            outline: 4px skyblue solid;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gallery2</h1>
+    <img class="pop" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGqcdOhN0mvnH5zDzO_i9K6aYzSf2mdG3XQTFb6gZO4OQ98CFksJx_qK1_td-v1MEi5RM&usqp=CAU" 
+        alt="kuromi"
+        id="top">
+
+    <h2>Thumbnails</h2>
+    <div class="main">
+        <img class="thumbnail show" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGqcdOhN0mvnH5zDzO_i9K6aYzSf2mdG3XQTFb6gZO4OQ98CFksJx_qK1_td-v1MEi5RM&usqp=CAU" 
+        alt="kuromi" onclick="one(0)">
+        <img class="thumbnail" src="https://i.pinimg.com/originals/1b/cc/e8/1bcce82b5c99525fdea63cff71efc1a2.jpg" alt=""
+        onclick="one(1)">
+        <img class="thumbnail" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYfXYgQF2Ie6p2HgDshGMyWp7VeZLMg-zDP9U3dLhaNA5yJMBHqGmMLNNP5ft081z2dVM&usqp=CAU" alt=""
+        onclick="one(2)">
+    </div> 
+    
+    <script>
+    var pop = document.getElementById("top");
+    var thumbnails = document.getElementsByClassName("thumbnail");
+    var lastIndex = 0;
+
+        function one(nowIndex) {
+
+            console.log(nowIndex)
+            console.log(lastIndex)
+
+            if (nowIndex == lastIndex) {
+                return;
+            }
+
+            pop.src = thumbnails[nowIndex].src;
+
+            thumbnails[nowIndex].classList.add('show');
+            thumbnails[lastIndex].classList.remove('show');
+
+            lastIndex = nowIndex;
+        }
+    </script>
+</body>
+</html>

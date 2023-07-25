@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>modalgallery</title>
+
+    <style>
+        #pop {
+            width: 300px;
+            display: block;
+            margin: 100px auto 0;
+            object-fit: cover;
+        }
+        #overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0 0 0/ 0.4);
+        }
+        #overlay.hidden {
+            display: none;
+        }
+        #center {
+            border-radius: 1rem;
+            max-width: 20rem;
+            padding: 0.5rem;
+            margin: 10rem auto;
+        }
+        #close-btn {
+            float: right;
+            font-size: 28px;
+            color: white;
+            background-color: transparent;
+            border: none;
+            padding: 2rem;
+            position: fixed;
+            top: 8px;
+            right: 16px;
+        }
+        .main {
+            display: flex;
+        }
+        .main img {
+            width: 100px;
+            opacity: 0.8;
+        }
+        .main img:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Q. Modal Gallery</h1>
+
+    <div class="main">
+        <img class="thumbnail" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGqcdOhN0mvnH5zDzO_i9K6aYzSf2mdG3XQTFb6gZO4OQ98CFksJx_qK1_td-v1MEi5RM&usqp=CAU" 
+        alt="kuromi">
+        <img class="thumbnail" src="https://i.pinimg.com/originals/1b/cc/e8/1bcce82b5c99525fdea63cff71efc1a2.jpg" alt="">
+        <img class="thumbnail" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYfXYgQF2Ie6p2HgDshGMyWp7VeZLMg-zDP9U3dLhaNA5yJMBHqGmMLNNP5ft081z2dVM&usqp=CAU" alt="">
+    </div>  
+
+    <div id="overlay" class="hidden">
+        <img id="pop" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGqcdOhN0mvnH5zDzO_i9K6aYzSf2mdG3XQTFb6gZO4OQ98CFksJx_qK1_td-v1MEi5RM&usqp=CAU" 
+        alt="kuromi">
+
+        <button id="close-btn" class="hidden">x</button>
+    </div>
+
+
+    <script>
+        var pop = document.getElementById("pop");
+        var closeBtn = document.getElementById("close-btn");
+        var overlay = document.getElementById("overlay");
+        var thumbnail = document.getElementsByClassName("thumbnail")
+        
+        console.log(closeBtn)
+        console.log(overlay)
+        console.log(pop)
+        console.log(thumbnail)
+
+        for(var i=0; i<thumbnail.length; i++) {
+            thumbnail[i].addEventListener("click", (e) => {
+                
+                pop.src = e.target.src;
+                overlay.classList.remove("hidden");
+            });
+        }
+
+        // 빈 부분 누르면 오버레이 나가짐
+        overlay.addEventListener('click', (e) => {
+            
+            console.log(e.target)
+
+            // x버튼 눌렀을 때 나가짐
+            if (e.target == closeBtn) {
+                overlay.classList.add("hidden")
+            }
+
+            // 오버레이 눌렀을 때 나가짐
+            if (e.target == overlay) {
+                overlay.classList.add('hidden')
+            }
+        })
+
+    </script>
+</body>
+</html>
