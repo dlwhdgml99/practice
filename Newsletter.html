@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsletter</title>
+
+    <style>
+        #box {
+            width: 24rem;
+        }
+        .box-sub {
+            display: flex;
+        }
+        input {
+            border: 1px solid #ddd;
+            padding: 0.5rem;
+            flex-grow: 1;
+            font-size: 1rem;
+        }
+        .btn {
+            border: none;
+            background-color: #333;
+            color: white;
+            padding: 0.5rem 0.75rem;
+            color: white;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <form action id="box">
+        <h1>Newsletter</h1>
+        <div class="box-sub">
+            <input type="email" placeholder="John@example.com">
+            <button class="btn">Submit</button>
+        </div>
+    </form>
+
+    <div id="message" class="hidden">
+        <h1>Thank you for subscribing us!</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut nam in illo 
+            fugiat, harum adipisci incidunt asperiores officiis mollitia, 
+            quidem beatae fugit, distinctio maxime tempore vitae eos nisi non rem.
+        </p>
+    </div>
+
+    <script>
+        var box = document.getElementById('box');
+        var message = document.getElementById('message');
+
+        console.log(box)
+
+        box.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            box.classList.add('hidden');
+            message.classList.remove('hidden');
+        })
+    </script>
+</body>
+</html>
