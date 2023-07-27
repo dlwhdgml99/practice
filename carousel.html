@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        /* main(사진) */
+        .container {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+        }
+        #main {
+            height: 200px;
+            display: inline-flex;
+            transition: 0.2s;
+        }
+        .photo {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        /*button*/
+        #left-btn, #right-btn {
+            cursor: pointer;
+            color: white;
+            background-color: transparent;
+            border: none;
+            font-weight: bold;
+            font-size: 18px;
+            align-items: center;
+            position: absolute;
+        }
+        #left-btn {
+            top: 50%;
+            left: 0;
+
+        }
+        #right-btn {
+            top: 50%;
+            right: 0;
+        }
+        
+        /*indicator*/
+        .indicator {
+            position: absolute;
+            bottom: 0.5rem;
+            text-align: center;
+            width: 100%;
+        }
+        .dot {
+            display: inline-block;
+            cursor: pointer;
+            height: 0.5rem;
+            width: 0.5rem;
+            background-color: white;
+            border-radius: 50%;
+            opacity: 0.5;
+        }
+        .active {
+            opacity: 1;
+        }
+        .hidden {
+            visibility: hidden;
+        }
+    </style>  
+ </head>
+<body>
+    <h1>Carousel</h1>
+    <div class="container">
+        <div id="main">
+
+            <!-- main image -->
+            <img class="photo" 
+            src="https://blog.kakaocdn.net/dn/eevGYy/btsbQyjQgy6/rDjOMvREEtKkVbKKjBVKV1/img.png" 
+            alt="swiss">
+            <img class="photo" 
+            src="https://eb.findmybucketlist.com/bucket/new/cp/2944759_cp_00.jpg?update_date=2019-10-2916:53:29" alt="">
+            <img class="photo"
+            src="https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/202110/14/2cff8a58-552f-49c2-b566-5ba73d343c96.jpg" alt="">
+        </div>
+
+        <!-- button -->
+        <button class="hidden" id="left-btn" onclick="go(-1)">❮</button>
+        <button id="right-btn" onclick="go(1)">❯</button>
+        
+        <!-- indicator -->
+        <div class="indicator">
+            <span id="dots" class="dot active"></span>
+            <span id="dots" class="dot"></span>
+            <span id="dots" class="dot"></span>
+       </div>
+    </div>
+
+    <script>
+        var main = document.getElementById("main");
+        var leftBtn = document.getElementById("left-btn");
+        var rightBtn = document.getElementById("right-btn");
+        var dots = document.getElementsByClassName("dot");
+        var sideWidth = 200;
+        var lastIndex = 0;
+        var nowIndex = 0;
+
+        console.log(leftBtn)
+        console.log(rightBtn)
+        console.log(dots)
+        console.log(main)
+
+        function go(i) {
+
+            nowIndex += i;
+
+            console.log(lastIndex)
+            console.log(nowIndex)
+
+            // button
+            if (nowIndex == 0) {
+                leftBtn.classList.add('hidden')
+            } else {
+                leftBtn.classList.remove('hidden')
+            }
+
+            if (nowIndex == 2) {
+                rightBtn.classList.add('hidden');
+            } else {
+                rightBtn.classList.remove('hidden');
+            }
+
+            // dot
+            dots[lastIndex].classList.remove('active');
+            dots[nowIndex].classList.add('active');
+
+            lastIndex = nowIndex;
+
+            /*img 이동*/
+           main.style.transform = `translateX(-${nowIndex * sideWidth}px)`;
+
+        }
+
+    </script>
+
+        
+        
+    
+</body>
+</html>
