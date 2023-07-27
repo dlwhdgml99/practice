@@ -9,14 +9,8 @@
         #box {
             width: 24rem;
         }
-        .box-sub {
+        .box-with {
             display: flex;
-        }
-        input {
-            border: 1px solid #ddd;
-            padding: 0.5rem;
-            flex-grow: 1;
-            font-size: 1rem;
         }
         .btn {
             border: none;
@@ -24,6 +18,12 @@
             color: white;
             padding: 0.5rem 0.75rem;
             color: white;
+        }
+        input {
+            border: 1px solid #ddd;
+            padding: 0.5rem;
+            flex-grow: 1;
+            font-size: 1rem;
         }
         .hidden {
             display: none;
@@ -33,7 +33,7 @@
 <body>
     <form action id="box">
         <h1>Newsletter</h1>
-        <div class="box-sub">
+        <div class="box-with">
             <input type="email" placeholder="John@example.com">
             <button class="btn">Submit</button>
         </div>
@@ -52,6 +52,7 @@
         var message = document.getElementById('message');
 
         console.log(box)
+        console.log(message)
 
         box.addEventListener('submit', (e) => {
             e.preventDefault();
