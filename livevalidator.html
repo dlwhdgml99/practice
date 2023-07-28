@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live validator</title>
+    <style>
+        input {
+            width: 18rem;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        label {
+            display: block;
+        }
+        .success {
+            color: skyblue;
+        }
+        .short, .lower, .require {
+            color: red;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Live validator</h1>
+
+    <label for>Username</label>
+    <input type="text" id="input" > 
+
+    <p>Enter username.</p>
+    <p class="success">cool username!</p>
+    <p class="require">Username is required</p>
+    <p class="short">Username is too short</p>
+    <p class="lower">lowercase letters, number and underscore are only accepted.</p>
+
+
+    <script>
+        var myInput = document.getElementById('input');
+        var success = document.getElementsByClassName('success');
+        var short = document.getElementsByClassName('short');
+        var lower = document.getElementsByClassName('lower');
+
+        console.log(input)
+        console.log(success)
+        console.log(short)
+        console.log(lower)
+
+        myInput.onkeyup = function() {
+
+            // 소문자
+            var lowerCaseLetters = /[a-z]/g;
+
+            if(myInput.value.match(lowerCaseLetters)) {
+                success.classList.remove('hidden');
+                success.classList.add('hidden');
+
+            } else {
+                success.classList.add('hidden');
+                success.classList.remove('hidden');
+            }
+
+            // 숫자
+            var numbers = /[0-9]/g;
+
+            // 언더 바
+        }
+    </script>
+</body>
+</html>

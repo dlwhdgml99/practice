@@ -5,29 +5,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Live Search</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+        /* input box */
         .box {
             width: 24rem;
         }
-        input {
+        #myInput {
             border: 1px solid #ddd;
             padding: 0.5rem;
             flex-grow: 1;
             font-size: 1rem;
+            width: 19rem;
         }
-        .text {
-            padding: 0rem;
-            top: 0;
+        /* 전체적인 리스트 스타일 */
+        #list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        /* 리스트 박스 전체적인 스타일 */
+        .element {
+            padding: 0.5rem;
+        }
+        .hidden {
+            display: none;
         }
     </style>
 </head>
 <body>
     <h1>Live Search</h1>
     <div class="box">
-        
+        <input type="text" id="myInput" placeholder="Search">
+        <ul id="list">
+            <li class="element">Guinness</li>
+            <li class="element">Heineken</li>
+            <li class="element">Budwiser</li>
+            <li class="element">Kloud</li>
+            <li class="element">Asahi</li>
+        </ul>
     </div>
 
     <script>
+        var input = document.getElementById('myInput');
 
+        console.log(input)
+
+        // 키업 이벤트
+        input.addEventListener('keyup', (e) => {
+
+            // li 부분
+            var elements = document.getElementsByClassName('element');
+
+
+            var value = e.target.value;
+
+            // element가 1씩 증가
+            for (var i = 0; i < elements.length; i++) {
+
+                // textContent : 텍스트 추가
+                // innerText와는 다르게 불필요한 공백 제거 안하고 그대로 가져옴
+                // element.textContent = '내용'
+                var textContent = elements[i].textContent;
+
+                // toLowerCase() : 문자열 소문자로 변환해 반환, 모든 문자를 소문자로 바꿔서 비교(콘솔 창 확인)
+                // toUpperCase() : 문자열 대문자로 변환해 반환, 모든 문자를 대문자로 바꿔서 비교(콘솔 창 확인)
+                value = value.toLowerCase();
+                textContent = textContent.toLowerCase();
+
+                console.log(value, textContent)
+            
+            
+            //indexOf : 호출한 String 객체에서 주어진 값과 일치하는 첫번째 인덱스 반환
+                if (textContent.indexOf(value) >= 0) {
+                    elements[i].classList.remove('hidden');
+                } else {
+                    elements[i].classList.add('hidden');
+                }
+            }
+        })
+
+        
     </script>
 </body>
 </html>
