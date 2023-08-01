@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+
+    <style>
+        #form {
+            width: 20rem;
+        }
+        .each {
+            margin-bottom: 1rem;
+        }
+        input {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        label {
+            display: block;
+        }
+        .error {
+            color: red;
+        }
+        .errorm {
+            color: red;
+            margin: 0;
+        }
+        button[type=submit] {
+            border: 1px solid #333;
+            background-color: #333;
+            color: white;
+            padding: 0.5rem;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Contact Form</h1>
+
+
+    <div class="container">
+
+        <form action id="form">
+   
+            <div class="each">
+                <label for>First Name</label>
+                <input type="text" name="fname" placeholder="John">
+                <p class="error errorm hidden" id="fname-error">First name is required</p>
+            </div>
+
+            <div class="each">
+                <label for>Last Name</label>
+                <input type="text" name="lname" placeholder="Doe">
+                <p class="error errorm hidden" id="lname-error">Last name is required</p>
+            </div>
+
+            <div class="each">
+                <label for>E-mail</label>
+                <input type="text" name="email" placeholder="JohnDoe@example.com">
+                <p class="error errorm hidden" id="email-error">E-mail is required</p>
+            </div>
+
+            <div class="each">
+                <label for>Cell phone</label>
+                <input type="text" name="phone" placeholder="cell phone">
+                <p class="error errorm hidden" id="phone-error">Phone number is required</p>
+            </div>
+    
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        var form = document.getElementById('form');
+        var fnameError = document.getElementById('fname-error');
+        var lnameError = document.getElementById('lname-error');
+        var emailError = document.getElementById('email-error');
+        var phoneError = document.getElementById('phone-error');
+
+        console.log(form)
+        console.log(fnameError)
+        console.log(lnameError)
+        console.log(emailError)
+        console.log(phoneError)
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            var formData = new FormData(e.target);
+            var fname = formData.get('fname');
+            var lname = formData.get('lname');
+            var email = formData.get('email');
+            var phone = formData.get('phone');
+
+
+            if(!fname.trim()) {
+                fnameError.classList.remove('hidden');
+                fnameError.textContent = 'First name is required';
+
+            } else if (fname.match(/[^a-zA-Z]/)) {
+                fnameError.classList.remove('hidden');
+                fnameError.textContent = 'Incorrect first name';
+            } else {
+                fnameError.classList.add('hidden');
+            }
+        
+            if(!lname.trim()) {
+                lnameError.classList.remove('hidden');
+                lnameError.textContent = 'Last name is required';
+            } else {
+                lnameError.classList.add('hidden');
+            }
+
+            if(!email.trim()) {
+                emailError.classList.remove('hidden');
+                emailError.textContent = 'E-mail is required';
+            } else {
+                emailError.classList.add('hidden');
+            }
+
+            if(!phone.trim()) {
+                phoneError.classList.remove('hidden');
+                phoneError.textContent = 'Phone number is required';
+            } else {
+                phoneError.classList.add('hidden');
+            }
+        })
+
+        // 함수이름 errorHandler()
+    </script>
+
+    
+</body>
+</html>
