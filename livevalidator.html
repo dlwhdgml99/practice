@@ -17,57 +17,64 @@
         .success {
             color: skyblue;
         }
-        .short, .lower, .require {
+        .not {
             color: red;
         }
-        .hidden {
-            display: none;
-        }
+        
     </style>
 </head>
 <body>
     <h1>Live validator</h1>
 
-    <label for>Username</label>
-    <input type="text" id="input" > 
-
-    <p>Enter username.</p>
-    <p class="success">cool username!</p>
-    <p class="require">Username is required</p>
-    <p class="short">Username is too short</p>
-    <p class="lower">lowercase letters, number and underscore are only accepted.</p>
-
+    <div>
+        <label for>Username</label>
+        <input type="text" id="input"> 
+        <p id="message">Enter username.</p>
+    </div>
 
     <script>
-        var myInput = document.getElementById('input');
-        var success = document.getElementsByClassName('success');
-        var short = document.getElementsByClassName('short');
-        var lower = document.getElementsByClassName('lower');
+        var input = document.getElementById('input');
+        var message = document.getElementById('message');
 
         console.log(input)
-        console.log(success)
-        console.log(short)
-        console.log(lower)
+        console.log(message)
+       
+        // input 부분에 keyup 이벤트
+        input.addEventListener('keyup', (e) => {
 
-        myInput.onkeyup = function() {
+            try {
+                // keyup 제대로 실행되는지 확인
+                var username = e.target.value;
 
-            // 소문자
-            var lowerCaseLetters = /[a-z]/g;
+            console.log(username)
 
-            if(myInput.value.match(lowerCaseLetters)) {
-                success.classList.remove('hidden');
-                success.classList.add('hidden');
+            // 여기서 테스트...
 
-            } else {
-                success.classList.add('hidden');
-                success.classList.remove('hidden');
+            // 사용자 이름이 필요합니다
+            if (!username) {
+                throw 'Username is required';
             }
 
-            // 숫자
-            var numbers = /[0-9]/g;
+            // 사용자 이름이 5자 이하일 때
+            if (username.length < 5) {
+                throw 'Username is too short!';
+            }
 
-            // 언더 바
-        }
+
+            // 사용자 이름에 숫자, 소문자, 언더바 이외의 다른 것이 들어갔을 때
+            if (username.match(/[^a-z0-9_]/)) {
+                throw 'lowercase letters, number and underscore are only accepted.';
+            }
+
+            message.innerHTML = `<p class = "success">cool username!</p>`
+            
+
+            } catch(error) {
+                message.innerHTML = `<p class = "not">${error}</p>`
+                console.log(error)
+            }
+        } )
+        
     </script>
 </body>
 </html>
