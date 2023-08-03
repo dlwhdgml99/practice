@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transformable Menu button</title>
+
+    <style>
+        .container {
+            display: flex;
+            width: 50px;
+            height: 25px;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .item {
+            width: inherit;
+            height: 5px;
+            background-color: #000;
+            transition: transform 0.2s;
+        }
+        .container:hover .top {
+            transform: translateY(10px) rotate(45deg);
+        }
+        .container:hover .bottom {
+            transform: translateY(-10px) rotate(-45deg);
+        }
+    </style>
+</head>
+<body>
+    <h2>Transformable Menu button</h2>
+    <div class="container">
+        <div class="item top"></div>
+        <div class="item bottom"></div>
+    </div>
+</body>
+</html>

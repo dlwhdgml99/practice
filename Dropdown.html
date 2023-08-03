@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown</title>
+
+    <style>
+        .container {
+            display: inline-block;
+        }
+        .dropdown-btn {
+            background-color: rgb(54, 54, 54);
+            color: white;
+            font-weight: 600;
+            padding: 0.5rem 0.75rem;
+            border: none;
+            font-size: 1rem;
+        }
+        .dropdown-content {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 200px;
+            border: 1px solid #ddd;
+            background-color: #fff;
+            display: none;
+            position: absolute;
+        }
+        a {
+            display: block;
+            padding: 0.5rem;
+            color: #000;
+        }
+        a:hover {
+            background-color: #eee;
+        }
+        .container:hover ul {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dropdown</h1>
+
+    <div class="container">
+        <button class="dropdown-btn">Dropdown</button>
+        <ul class="dropdown-content">
+            <li>
+                <a href="#">list item</a>
+            </li>
+            <li>
+                <a href="#">list item</a>
+            </li>
+            <li>
+                <a href="#">list item</a>
+            </li>
+        </ul>
+    </div>
+
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus qui 
+        fugiat magni velit nobis eos deleniti odio quae accusamus voluptas, 
+        tempora culpa odit deserunt consequatur aspernatur nesciunt. Saepe, sint quo.
+    </p>
+</body>
+</html>
