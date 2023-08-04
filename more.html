@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>See more button</title>
+
+    <style>
+        #container {
+            display: inline;
+        }
+        #btn {
+            color: #888;
+            border: none;
+            background-color: transparent;
+            margin-top: 8px;
+        }
+        #btn.hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>See more button</h1>
+
+    <p id="container">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Perspiciatis, ratione deleniti corporis voluptate nam incidunt necessitatibus quisquam molestias nisi sequi ipsam aspernatur 
+        consequuntur laboriosam laborum rerum temporibus fuga et repellat?
+    </p>
+    <button id="btn">more</button>
+   
+
+    <script>
+        var btn = document.getElementById('btn');
+        var container = document.getElementById('container');
+        var fullContent = container.textContent;
+        var lessContent = fullContent.substring(0, 50) + '...';
+
+        console.log(btn)
+        console.log(container)
+
+        container.textContent = lessContent;
+       
+
+        btn.addEventListener('click', () => {
+            container.textContent = fullContent;
+            btn.classList.add('hidden');
+        })
+    </script>
+   
+</body>
+</html>
