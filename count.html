@@ -3,22 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Counting button</title>
 </head>
 <body>
-    <h1>Counting Button</h1>
-
-    <p id="countBtn">0</p>
-    <button id="countBtn" onclick="increase()">+</button>
+   <h1>Counting Button</h1>
+   <p id="demo">0</p>
+    <button id="btn">+</button>
 
     <script>
-        var count = 0;
-        function increase() {
-            count = count+1;
-            document.querySelector("#countBtn").innerText=count;
-        }
+        var btn = document.getElementById('btn');
+        var demo = document.getElementById('demo');
+        var count=0;
+        console.log(btn)
+        console.log(demo)
+
+        btn.addEventListener("click", function() {
+            count++;
+            demo.textContent = count;
+        })
     </script>
-
-
 </body>
 </html>

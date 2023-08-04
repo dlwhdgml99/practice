@@ -1,54 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>toggle</title>
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Toggle</title>
+
+  <style>
+    #container {
+      position: relative;
+      display: inline-block;
+    }
+    #input {
+      width: 16rem;
+      padding: 0.5rem;
+    }
+    #btn {
+      position: absolute;
+      margin-top: 0.5rem;
+      right: 0;
+      border: none;
+      background-color: transparent;
+      padding: 0 1rem;
+      font-weight: 600;
+    }
+  </style>
 </head>
 <body>
+  <h1>Password Toggle</h1>
 
-<h1>password toggle</h1>
-
-
-  <div id="box">
-    <input id="input" type="password">
+  <div id="container">
+    <input id="input"  type="password" >
     <button id="btn">Show</button>
   </div>
 
-  <style>
-    #btn {
-        position: absolute;
-        top: 0;
-        right: 0;
-        height: 100%;
-        background-color: transparent;
-        border: none;
-        padding: 0 0.5rem;
-    }
-    
-    #box {
-        position: relative;
-        display: inline-block;
-    }
-
-    #input {
-        padding: 0.5rem;
-    }
-  </style>
-
   <script>
-    const btn = document.getElementById("btn");
-    const input = document.getElementById("input");
+    var btn = document.getElementById('btn');
+    var input = document.getElementById('input');
 
-    btn.addEventListener("click", function () {
+    console.log(btn)
+    console.log(input)
 
-      if (input.type === "text") {
+    btn.addEventListener("click", () => {
+
+      if(input.type === 'text') {
         input.type = "password"
-        btn.textContent = "Show";
+        btn.textContent = 'Show';
       } else {
         input.type = "text"
-        btn.textContent = "Hide";
+        btn.textContent = 'Hide';
       }
     })
   </script>
