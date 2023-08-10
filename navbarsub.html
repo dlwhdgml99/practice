@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>submenu</title>
+</head>
+<body style="height: 1400px;">
+    <style>
+        nav {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+        }
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .menu-list {
+            background-color: #333;
+            display: flex;
+            
+        }
+       .menu-link {
+            display: block;
+            color: #fff;
+            padding: 0.5rem;
+            text-decoration: none;
+       }
+       .menu-link:hover {
+            background-color: #000;
+       }
+       .dropdown-btn {
+            font-size: 1rem;
+            background-color: transparent;
+            border: none;
+            color: #fff;
+            padding: 0.5rem;
+       }
+       .dropdown-btn:hover {
+            background-color: #222;
+       }
+       .dropdown-content {
+            width: 200px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            position: absolute;
+       }
+       .drop-link {
+            display: block;
+            color: #000;
+            padding: 0.5rem;
+       }
+       .drop-link:hover {
+            background-color: #eee;
+       }
+       .dropdown-container:hover .dropdown-content {
+            display: block;
+       }
+        main {
+            margin-top: 4rem;
+        }
+
+    </style>
+
+    <nav>
+        <ul class="menu-list">
+            <li>
+                <a href="#" class="menu-link">Link</a>
+            </li>
+            <li>
+                <a href="#" class="menu-link">Link</a>
+            </li>
+           <div class="dropdown-container">
+            <button class="dropdown-btn">Dropdown</button>
+            <ul class="dropdown-content">
+                <li>
+                    <a href="#" class="drop-link">Link</a>
+                </li>
+                <li>
+                    <a href="#" class="drop-link">Link</a>
+                </li>
+                <li>
+                    <a href="#" class="drop-link">Link</a>
+                </li>
+            </ul>
+             
+           </div>
+        </ul>
+
+    </nav>
+
+    <main>
+        <h1>NavBar with sub Menu</h1>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+            Voluptate vitae enim, impedit explicabo libero vero, nemo saepe dolores dignissimos odit, 
+            earum quod animi nisi sunt quis in sit voluptas perspiciatis.
+        </p>
+    </main>
+    
+</body>
+</html>
