@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordion</title>
+</head>
+<body>
+    <style>
+        .item {
+            border-bottom: 1px solid #ddd;
+            padding: 0.5rem;
+        }
+        /* checkbox */
+        input[type=checkbox] {
+            display: none;
+        }
+        /* label */
+        label {
+            display: block;
+        }
+        label::after {
+            content: "+";
+            float: right;
+            transition: 0.2s;
+        }
+        input[type=checkbox]:checked + label::after {
+            transform: rotate(45deg);
+        }
+        /* content */
+        .content {
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.2s;
+        }
+        input[type=checkbox]:checked + label +.content {
+            max-height: 200px;
+        }
+    </style>
+
+    <h1>Accordion</h1>
+
+    <div class="container">
+        <div class="item">
+            <input type="checkbox" name id="tab1">
+            <label for="tab1">
+                Tab 1 
+            </label>
+            <div class="content">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum quo officia 
+                    voluptate illo placeat labore nemo? Ab repellendus dolorem nihil 
+                    expedita quia labore at. Perferendis nesciunt possimus reiciendis cumque fugiat.
+                </p>
+            </div>
+        </div>
+
+        <div class="item">
+            <input type="checkbox" name id="tab2">
+            <label for="tab2">Tab 2</label>
+            <div class="content">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum quo officia 
+                    voluptate illo placeat labore nemo? Ab repellendus dolorem nihil 
+                    expedita quia labore at. Perferendis nesciunt possimus reiciendis cumque fugiat.
+                </p>
+            </div>
+        </div>
+
+        <div class="item">
+            <input type="checkbox" name id="tab3">
+            <label for="tab3">Tab 3</label>
+            <div class="content">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum quo officia 
+                    voluptate illo placeat labore nemo? Ab repellendus dolorem nihil 
+                    expedita quia labore at. Perferendis nesciunt possimus reiciendis cumque fugiat.
+                </p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
