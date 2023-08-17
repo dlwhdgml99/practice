@@ -1,101 +1,94 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<style>
-.dropbtn {
-  background-color: transparent;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-}
-
-.dropdown {
-  display: inline-block;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: white;
-}
-
-.dropdown-content {
-  display: none;
-  background-color: transparent;
-  overflow: auto;
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: center;
-}
-
-.show {
-  display: block;
-}
-
-p {
-  margin-top: 100px;
-}
-
-.underline {
-  border-bottom: 1px solid #555;
-}
-
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Top navigation</title>
 </head>
+<body style="height: 1400px;">
+  <style>
+   .dropbtn {
+    background-color: transparent;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+   }
+   .dropdown {
+    display: inline-block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+   }
+   .dropdown-content { 
+    display: none;
+    background-color: transparent;
+    overflow: auto;
+    z-index: 1;
+   }
+   .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+   }
+   .show {
+    display: block;
+   }
+   p {
+    margin-top: 100px;
+   }
+   .underline {
+    border-bottom: 1px solid #555;
+   }
+  </style>
 
-<body>
-<div class="dropdown">
-  <div class="underline">
-    <svg xmlns="http://www.w3.org/2000/svg" height="1.5rem" viewBox="0 0 448 512"
-    onclick="myFunction()" class="dropbtn" id="btn">
-      <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 
-      0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
-  </svg>
+  <div class="dropdown">
+    <div class="underline">
+      <svg xmlns="http://www.w3.org/2000/svg" height="1.5rem" viewBox="0 0 448 512"
+      onclick="myFunction()" class="dropbtn" id="btn">
+        <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 
+        0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
+      </svg>
+    </div>
+
+    <div class="dropdown-content underline" id="myDropdown">
+      <a href="#">Link</a>
+      <a href="#">Link</a>
+      <a href="#">Link</a>   
+    </div>
   </div>
-  <div id="myDropdown" class="dropdown-content underline">
-    <a href="#">Link</a>
-    <a href="#">Link</a>
-    <a href="#">Link</a>
-  </div>
-</div>
 
-<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ut, 
-    sit expedita earum architecto ducimus ipsam libero qui quam ex eligendi 
-    nobis vel excepturi! Iste facere dolore vitae fugit. Impedit, earum.
-</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+      Quia magni necessitatibus atque totam molestiae quisquam pariatur eius itaque, aut consectetur 
+      deserunt ipsam, ab accusamus placeat repudiandae rerum eos debitis esse.
+  </p>
+  
 
+  <script>
+   console.log(btn)
 
-<script>
+   function myFunction() {
 
-  console.log(btn)
+    // 버튼 누를 때마다 리스트 나타남
+    document.getElementById("myDropdown").classList.toggle("show");
 
-  function myFunction() {
+    // 화면 클릭 시
+    // 이벤트 감지 영역(경기장)
+    document.addEventListener('click', function(e) {
 
-    //버튼 누를 때마다 리스트 나타남
-  document.getElementById("myDropdown").classList.toggle("show");
-  }
+      // 클릭한 부분이 버튼이 아닐 때
+      if(e.target !== btn) {
+        // 메뉴 사라짐
+        document.getElementById("myDropdown").classList.remove("show");
+      }
+    })
+   }
 
-  // 화면을 클릭했을 때
-  // 이벤트 감지 영역(경기장)
-  document.addEventListener('click', function(e) {
-
-    // 클릭한 부분이 버튼이 아닐 때
-    if (e.target !== btn) {
-      //메뉴 사라짐
-      document.getElementById("myDropdown").classList.remove("show");
-    }
-  })
-
-</script>
-
+  </script>
+  
 </body>
 </html>
