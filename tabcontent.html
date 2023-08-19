@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tab content</title>
+</head>
+<body>
+    <style>
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        /* radio */
+        input[type=radio] {
+            display: none;
+        }
+        /* label */
+        label {
+            padding: 0.25rem;
+        }
+        input[type=radio]:checked + label {
+            border-bottom: 2px solid skyblue;
+            color: skyblue;
+        }
+        /* content */
+        .content {
+            display: none;
+            flex-basis: 100%;
+            order: 9;
+        }
+        input[type=radio]:checked + label + .content {
+            display: block;
+        }
+
+    </style>
+
+    <h1>Tab Content</h1>
+
+    <div class="container">
+        <input type="radio" name="beer" id="tab1" checked>
+        <label for="tab1">Guinness</label>
+        <p class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, dicta harum consectetur et nisi possimus. Aut voluptatum voluptas, rerum veritatis 
+            aspernatur possimus distinctio culpa dolor tempora, a aperiam eum vitae!
+        </p>
+
+        <input type="radio" name="beer" id="tab2">
+        <label for="tab2">Heineken</label>
+        <p class="content">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, dicta harum consectetur et nisi possimus. Aut voluptatum voluptas, rerum veritatis 
+            aspernatur possimus 
+        </p>
+
+        <input type="radio" name="beer" id="tab3">
+        <label for="tab3">Budwiser</label>
+        <p class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, dicta harum consectetur et nisi possimus. Aut voluptatum voluptas, rerum veritatis 
+            aspernatur possimus distinctio adkeidlsjkdfklnlkwnkesdkjflksdkf
+        </p>
+    </div>
+
+
+    <script>
+
+    </script>
+    
+</body>
+</html>

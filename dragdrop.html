@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag&Drop</title>
+</head>
+<body>
+    <style>
+        #dropzone {
+            border: 4px dashed #ddd;
+            padding: 4rem;
+            text-align: center;
+        }
+    </style>
+
+    <h1>Drag & Drop</h1>
+    <div id="dropzone">
+        Drag one or more files to this
+        <i>drop zone</i>.
+    </div>
+
+    <script>
+        var dropzone = document.getElementById("dropzone")
+        console.log(dropzone)
+
+        dropzone.addEventListener('dragover', dragOverHandler);
+        dropzone.addEventListener('drop', dropHandler);
+
+        function dropHandler(e) {
+            e.preventDefault();
+
+            console.log('File(s) dropped!');
+
+            var files = Array.from(e.dataTransfer.files);
+
+            console.log(files)
+
+            alert('Submitted!');
+        }
+
+        function dragOverHandler(e) {
+            e.preventDefault();
+
+            console.log('File(s) is moving in drop zone');
+        }
+
+        
+    </script>
+    
+</body>
+</html>
