@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scroll event</title>
+</head>
+<body>
+    <style>
+        .el {
+            transition: opacity 0.5s;
+        }
+        .opacity-0 {
+            opacity: 0;
+        }
+
+    </style>
+
+    <h1>Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+        Quasi nam ea voluptatem recusandae vero. Unde quibusdam dignissimos neque, at suscip
+        it molestias dicta, aperiam possimus quo ullam beatae, tempore vero magni.
+    </h1>
+    <h1>Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+        Quasi nam ea voluptatem recusandae vero. Unde quibusdam dignissimos neque, at suscip
+        it molestias dicta, aperiam possimus quo ullam beatae, tempore vero magni.
+    </h1>
+    <h1>Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+        Quasi nam ea voluptatem recusandae vero. Unde quibusdam dignissimos neque, at suscip
+        it molestias dicta, aperiam possimus quo ullam beatae, tempore vero magni.
+    </h1>
+    <h1 class="el opacity-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+        Quasi nam ea voluptatem recusandae vero. Unde quibusdam dignissimos neque, at suscip
+        it molestias dicta, aperiam possimus quo ullam beatae, tempore vero magni.
+    </h1>
+    <h1 class="el opacity-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+        Quasi nam ea voluptatem recusandae vero. Unde quibusdam dignissimos neque, at suscip
+        it molestias dicta, aperiam possimus quo ullam beatae, tempore vero magni.
+    </h1>
+    <h1 class="el opacity-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+        Quasi nam ea voluptatem recusandae vero. Unde quibusdam dignissimos neque, at suscip
+        it molestias dicta, aperiam possimus quo ullam beatae, tempore vero magni.
+    </h1>
+
+    <script>
+        var els = document.getElementsByClassName('el');
+
+        console.log(els)
+
+        window.addEventListener('scroll', (e) => {
+            var viewPortHeight = window.innerHeight;
+
+            for (var i=0; i<els.length; i++) {
+                // viewport의 top, element의 top 사이의 거리
+                var y = els[i].getBoundingClientRect().y;
+
+                // viewport에 내용이 꽉 찼을 경우
+                if (y < viewPortHeight - 100) {
+                    els[i].classList.remove('opacity-0');
+                }
+            }
+        })
+    </script>
+</body>
+</html>

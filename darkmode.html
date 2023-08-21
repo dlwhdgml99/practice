@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>darkmode</title>
+</head>
+<body>
+    <style>
+        .dark-mode {
+            background-color: #333;
+            color: white;
+        }
+
+    </style>
+
+    <h1>Theme</h1>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Incidunt quibusdam expedita delectus. Laudantium iusto, cumque quidem repudiandae facilis, perspi
+        ciatis illum quis reiciendis culpa iure et aliquam. 
+        Itaque autem quidem mollitia?
+    </p>
+
+    <input type="checkbox" id="checkbox" name>
+    <label for="checkbox">Dark Mode</label>
+
+    <script>
+        var checkbox = document.getElementById('checkbox');
+        var theme = localStorage.getItem('theme');
+
+        console.log(checkbox)
+
+        // 다크모드가 선택되었을 때
+        var isDarkMode = localStorage.getItem('darkedAt');
+
+        if (isDarkMode) {
+            document.body.classList.add('dark-mode');
+            checkbox.checked = true;
+        }
+
+        // 테마가 바뀔 때
+        checkbox.addEventListener('change', (e) => {
+            var checked = e.target.checked;
+
+            if (checked) {
+                document.body.classList.add('dark-mode');
+                localStorage.setItem('darkedAt', new Date().toLocaleString());
+            } else {
+                document.body.classList.remove('dark-mode');
+                localStorage.removeItem('darkedAt');
+            }
+        })
+    </script>
+</body>
+</html>
